@@ -41,7 +41,7 @@ sleep 4
 screen -dmS my-op-node bash -c "$NODE \
   --l1=https://ethereum-sepolia-rpc.publicnode.com --l1.beacon=https://ethereum-sepolia-beacon-api.publicnode.com \
   --l1.trustrpc --l1.rpckind=standard \
-  --l2=http://127.0.0.1:$AUTH_PORT --l2.jwt-secret=$DATADIR/jwt.txt --rollup.config=$DATADIR/rollup.json \
+  --l2=http://127.0.0.1:$AUTH_PORT --l2.jwt-secret=$DATADIR/jwt.txt --rollup.config=$DATADIR/rollup.json --l2.enginekind=geth \
   --rpc.addr=127.0.0.1 --rpc.port=$NODE_PORT --p2p.listen.tcp=$P2P_PORT --p2p.listen.udp=$P2P_PORT \
   --p2p.static=$PEER --syncmode=consensus-layer --syncmode.req-resp \
   --l1.rpc-max-batch-size=10 --l1.rpc-rate-limit=10 --log.level=info 2>&1 | tee $DATADIR/op-node.log"

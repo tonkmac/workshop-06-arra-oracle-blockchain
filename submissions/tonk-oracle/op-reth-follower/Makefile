@@ -76,7 +76,7 @@ run-cl: ## start op-node (CL) pointing engine at op-reth
 > screen -dmS reth-cl bash -c "$(OPNODE) \
 >   --l1=https://ethereum-sepolia-rpc.publicnode.com --l1.beacon=https://ethereum-sepolia-beacon-api.publicnode.com \
 >   --l1.trustrpc --l1.rpckind=standard \
->   --l2=http://127.0.0.1:$(EL_AUTH) --l2.jwt-secret=$(D)/jwt.txt --rollup.config=$(D)/rollup.json \
+>   --l2=http://127.0.0.1:$(EL_AUTH) --l2.jwt-secret=$(D)/jwt.txt --rollup.config=$(D)/rollup.json --l2.enginekind=reth \
 >   --rpc.addr=127.0.0.1 --rpc.port=$(CL_RPC) --p2p.listen.tcp=$(CL_P2P) --p2p.listen.udp=$(CL_P2P) \
 >   --p2p.static=$(PEER) --syncmode=consensus-layer --syncmode.req-resp \
 >   --l1.rpc-max-batch-size=20 --l1.rpc-rate-limit=20 --log.level=info 2>&1 | tee $(D)/op-node-cl.log"
